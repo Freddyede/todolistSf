@@ -2,22 +2,14 @@
 
 namespace App\Controller;
 
-use App\Services\UserServices;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Abstract\AbstractSpecificController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class TaskController extends AbstractController
+class TaskController extends AbstractSpecificController
 {
-
-    private UserServices $userServices;
-
-    public function __construct(UserServices $userServices)
-    {
-        $this->userServices = $userServices;
-    }
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/task', name: 'task.index')]
