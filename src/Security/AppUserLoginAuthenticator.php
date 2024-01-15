@@ -45,7 +45,7 @@ class AppUserLoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
         return new RedirectResponse($this->urlGenerator->generate(match ($token->getUser()->getRoles()['roles']) {
-            'ROLE_ADMIN' => 'admin.index'
+            'ROLE_ADMIN' => 'task.index'
         }));
     }
 
