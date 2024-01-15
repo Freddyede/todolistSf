@@ -10,9 +10,7 @@ class UserServices extends AbstractService
     {
         return !$activeMany
             ?
-            // fn x() {...};
-                // script src={{asset('assets/scripts/main.js')}}></script>
-                 // link href={{asset('assets/styles/main.css')
+                $this->em->getRepository(AbstractService::USER_ENTITY_TARGET)->findOneBy($filter)
             :
                 $this->em->getRepository(AbstractService::USER_ENTITY_TARGET)->findBy($filter);
     }
