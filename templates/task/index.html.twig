@@ -3,7 +3,15 @@
 {% block title %}Hello TaskController!{% endblock %}
 
 {% block body %}
+    <a href="{{ path('task.createOrUpdate', {id: -1}) }}" class="btn btn-primary">Create new task</a>
     {% for task in tasks %}
-        {{ task.label }}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.label }}</h5>
+                <a href="{{path('task.read', {id: task.id})}}" class="btn btn-primary">Read</a>
+                <a href="{{ path('task.createOrUpdate', {id: task.id}) }}" class="btn btn-warning">Update</a>
+                <a href="{{ path('task.delete', {id: task.id}) }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}

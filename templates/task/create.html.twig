@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+        <div class="col-10 offset-1">
+            {{ form_row(form.label) }}
+        </div>
+        <div class="col-10 offset-1">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            {{ form_row(form.submit) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
+
