@@ -8,11 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+#[IsGranted('ROLE_ADMIN')]
+#[Route('/task', name: 'task.')]
 class TaskController extends AbstractSpecificController
 {
 
-    #[IsGranted('ROLE_ADMIN')]
-    #[Route('/task', name: 'task.index')]
+    #[Route('/', name: 'index')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         return $this->render('task/index.html.twig', [
